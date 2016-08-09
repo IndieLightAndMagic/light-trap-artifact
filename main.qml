@@ -37,4 +37,14 @@ ApplicationWindow {
             messageDialog.open();
         }
     }
+    CameraInterface{
+        id: cam1
+    }/*
+    CameraInterface{
+        anchors.left: cam1.right
+    }*/
+    
+    
+    /* Hello This is spel check */
+    
 }
