@@ -1,50 +1,31 @@
 import QtQuick 2.6
-import QtQuick.Controls 1.5
 import QtQuick.Dialogs 1.2
+import QtQuick.Window 2.2
+import QtQuick.Controls 1.5
+import "js/responsive.js" as Responsive
+
 
 ApplicationWindow {
+    
+    id:applicationWindow
     visible: true
-    width: 640
-    height: 480
     title: qsTr("Hello World")
+    property string authorName:"Julian Andres Guarin"
     
-    menuBar: MenuBar {
-        Menu {
-            title: qsTr("File")
-            MenuItem {
-                text: qsTr("&Open")
-                onTriggered: console.log("Open action triggered");
-            }
-            MenuItem {
-                text: qsTr("Exit")
-                onTriggered: Qt.quit();
-            }
-        }
+    SplashScreen{
+        id:splashScreen
+        onTimeout: Qt.quit()
     }
     
-    MainForm {
-        anchors.fill: parent
-        button1.onClicked: messageDialog.show(qsTr("Button 1 pressed"))
-        button2.onClicked: messageDialog.show(qsTr("Button 2 pressed"))
+    
+    /* Check responsive Startup */
+    Component.onCompleted: {
+        console.log(qsTr("+------------------+"))
+        console.log(qsTr("+ Application Runs +"))
+        console.log(qsTr("+------------------+"))
+        Responsive.responsiveStartUp(Qt,Screen,applicationWindow,9,16)
+        applicationWindow.x = Screen.width/2 - Window.width/2        
+        applicationWindow.y = 0
     }
-    
-    MessageDialog {
-        id: messageDialog
-        title: qsTr("May I have your attention, please?")
-        
-        function show(caption) {
-            messageDialog.text = caption;
-            messageDialog.open();
-        }
-    }
-    CameraInterface{
-        id: cam1
-    }/*
-    CameraInterface{
-        anchors.left: cam1.right
-    }*/
-    
-    
-    /* Hello This is spel check */
     
 }

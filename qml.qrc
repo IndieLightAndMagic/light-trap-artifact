@@ -3,5 +3,8 @@
         <file>main.qml</file>
         <file>MainForm.ui.qml</file>
         <file>CameraInterface.qml</file>
+        <file>resources/AutoFormaxLogo.png</file>
+        <file>SplashScreen.qml</file>
+        <file>js/responsive.js</file>
     </qresource>
 </RCC>
