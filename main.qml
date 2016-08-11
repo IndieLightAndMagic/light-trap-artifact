@@ -14,7 +14,6 @@ ApplicationWindow {
     
     SplashScreen{
         id:splashScreen
-        onTimeout: Qt.quit()
     }
     
     
