@@ -10,15 +10,23 @@ ApplicationWindow {
     id:applicationWindow
     visible: true
     title: qsTr("Hello World")
+    
     property string authorName:"Julian Andres Guarin"
+    property var windowFactor:Qt.vector2d(1.0,1.0)
+    
     
     SplashScreen{
         id:splashScreen
-        source:"qrc:/images/AutoFormaxLogoBack.png"
+        source:"qrc:/images/AutoFormaxLogoBackBlurred.png"
     }
     SplashScreen{
         id:splashScreenWhite
         fadeout_timer.running: true
+    }
+    
+    MainMenu{
+        id:mainMenu
+        windowFactor: applicationWindow.windowFactor         
     }
     
     
@@ -27,9 +35,8 @@ ApplicationWindow {
         console.log(qsTr("+------------------+"))
         console.log(qsTr("+ Application Runs +"))
         console.log(qsTr("+------------------+"))
-        Responsive.responsiveStartUp(Qt,Screen,applicationWindow,9,16)
-        //applicationWindow.x = Screen.width/2 - Window.width/2        
-        //applicationWindow.y = 0
+        applicationWindow.windowFactor = Responsive.responsiveStartUp(Qt,Screen,applicationWindow,9,16)
+        
     }
     
 }

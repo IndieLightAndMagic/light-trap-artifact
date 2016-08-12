@@ -10,5 +10,6 @@
         <file>light-trap-project.pro</file>
         <file>main.cpp</file>
         <file>qml.qrc</file>
+        <file>CustomArea.qml</file>
     </qresource>
 </RCC>

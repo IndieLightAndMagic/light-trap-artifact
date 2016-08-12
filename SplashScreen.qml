@@ -11,10 +11,10 @@ Image{
     property alias invisible_timer: invisible_timer
     property int timeout_ms: 2000
     signal timeout
-    
+    signal clicked
     MouseArea{
         anchors.fill: parent
-        onClicked: Qt.quit()
+        onClicked: root.clicked()
     }
     Timer{
         id:invisible_timer

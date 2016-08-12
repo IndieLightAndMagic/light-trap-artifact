@@ -1,58 +1,110 @@
-import QtQuick 2.0
-
+import QtQuick 2.5
+import "js/responsive.js" as Responsive
 
 Rectangle {
-    
-    
     id: root
-    x: 0
-    y: 0
-    width: parent.width
-    height: parent.height
-    color: "#ffffff"
+    anchors.fill: parent
+    
+    
+    property var windowFactor: Qt.vector2d(1.0,1.0);
+    
 
+    Image {
+        id: image1
+        width:parent.width
+        height:parent.height
+        source:"qrc:/images/AutoFormaxLogoBackBlurred.png"
+        fillMode: Image.Stretch
+    }
 
-    property real xpos :  0.3675 * root.width
-    property real bwidthfactor : root.height * 0.7350
-    property real bheight : root.height *  0.7350 * (16/9)
+    CustomArea{
+        
+        id:headerArea
+        factor_rheight: .05
+        debugging:false
+        anchors.top:parent.top
+    }
+    CustomArea{
+        
+        id:topArea
+        factor_rheight: .75
+        debugging:false
     
+    }
+    CustomArea{
+        
+        id:bottomAreaLeft
+        factor_rheight: .2
+        factor_rwidth: .333
+        debugging:false
+        anchors.top:topArea.bottom
     
+    }
+    CustomArea{
+        
+        id:bottomAreaCenter
+        factor_rheight: .2
+        factor_rwidth: .333
+        debugging:false
+        anchors.top:topArea.bottom
+        anchors.left:bottomAreaLeft.right
+        
+    }
+    CustomArea{
+        
+        id:bottomAreaRight
+        factor_rheight: .2
+        factor_rwidth: .333
+        debugging:false
+        anchors.top:topArea.bottom
+        anchors.left:bottomAreaCenter.right
     
-    function ypos(y){
-        console.log(y,root.height * (y / 1920))
-        return root.height * (y / 1920)
+    }
+    CustomArea{
+        
+        id:footerArea
+        factor_rheight: .05
+        debugging:false
+        anchors.bottom:parent.bottom
     }
     
     Image {
-        id: image1
-        width:bwidth
-        height:bheight
-        x: xpos
-        y: ypos(195)
-        source: "resources/Templates.png"
+        
+        id: exitButton
+        width: sourceSize.width * windowFactor.x  
+        height: sourceSize.height * windowFactor.y
+        source: "qrc:/images/ExitButton.png"
         fillMode: Image.Stretch
+        anchors.centerIn: bottomAreaRight
+        MouseArea{
+            anchors.fill: parent
+            onClicked: Qt.quit()
+        }
+
+    }
+
+    Image {
+        
+        id: captureButton
+        width: sourceSize.width * windowFactor.x  
+        height: sourceSize.height * windowFactor.y
+        source: "qrc:/images/CaptureButton.png"
+        fillMode: Image.Stretch
+        anchors.centerIn: bottomAreaCenter
+        
+    }
+
+    Image {
+        
+        id: templatesButton
+        width: sourceSize.width * windowFactor.x  
+        height: sourceSize.height * windowFactor.y
+        source: "qrc:/images/TemplatesButton.png"
+        fillMode: Image.Stretch
+        anchors.centerIn: bottomAreaLeft
         
     }
     
-    Image {
-        id: image2
-        width:bwidth
-        height:bheight
-        x: xpos
-        y: ypos(788)
-        source: "resources/Capture.png"
-        fillMode: Image.Stretch
-    }
-    
-    Image {
-        id: image3
-        width:bwidth
-        height:bheight
-        x: xpos
-        y: ypos(1345)
-        source: "resources/Exit.png"
-        fillMode: Image.Stretch
-    }
 }
 
 

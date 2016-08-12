@@ -1,6 +1,6 @@
 
-var base_width = 108
-var base_height = 192
+var base_width = 1080
+var base_height = 1920
 
 
 var osx_width_factor = 4
@@ -81,11 +81,11 @@ function responsiveStartUp(qtCtxt,screen,window,aspectRatioW,aspectRatioH){
     console.log("Screen Dimensions:")
     console.log(screen.width, screen.height)    
     
-    if (qtCtxt.platform.os != "osx") return true;
+    if (qtCtxt.platform.os != "osx") return Qt.vector2d(1.0, 1.0);
     
-    console.log("osx host emulating a ",aspectRatioW,":",aspectRatioH," mobile device")
+    console.log("osx host ",window.width,"x",window.height,"emulating a ",aspectRatioW,":",aspectRatioH," mobile device")
     
-    
+    /* Check Screen resolutions */
     for (var key in screenResolutions){
         var aspectKey = humanReadableRatio(screenResolutions[key].w,screenResolutions[key].h)
         if (aspectKey in hrScreenResolutions){
@@ -118,6 +118,10 @@ function responsiveStartUp(qtCtxt,screen,window,aspectRatioW,aspectRatioH){
             console.log(key,":(",hrScreenResolutions[key].count,")",hrScreenResolutions[key].resolution_list)
     }    
     setAspectRatio(screen,window,aspectRatioW,aspectRatioH)  
+    console.log("osx host ",window.width,"x",window.height,"emulating a ",aspectRatioW,":",aspectRatioH," mobile device")
     
+    window.y = 0
+    window.x = screen.width/2 - window.width/2
+    return Qt.vector2d(window.width/Responsive.base_width, window.height/Responsive.base_height)
     
 }
