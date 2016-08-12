@@ -3,18 +3,12 @@
         <file>main.qml</file>
         <file>MainForm.ui.qml</file>
         <file>CameraInterface.qml</file>
-        <file>resources/AutoFormaxLogo.png</file>
         <file>SplashScreen.qml</file>
         <file>js/responsive.js</file>
         <file>MainMenu.qml</file>
-        <file>resources/BackButton.png</file>
-        <file>resources/CaptureButton.png</file>
-        <file>resources/ExitButton.png</file>
-        <file>resources/SetButtonNotOk.png</file>
-        <file>resources/SetButtonOk.png</file>
-        <file>resources/SyncButton.png</file>
-        <file>resources/TemplatesButton.png</file>
-        <file>resources/AutoFormaxLogoBack.png</file>
-        <file>resources/AutoFormaxLogoBackBlurred.png</file>
+        <file>deployment.pri</file>
+        <file>light-trap-project.pro</file>
+        <file>main.cpp</file>
+        <file>qml.qrc</file>
     </qresource>
 </RCC>

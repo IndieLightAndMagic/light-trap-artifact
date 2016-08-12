@@ -14,6 +14,11 @@ ApplicationWindow {
     
     SplashScreen{
         id:splashScreen
+        source:"qrc:/images/AutoFormaxLogoBack.png"
+    }
+    SplashScreen{
+        id:splashScreenWhite
+        fadeout_timer.running: true
     }
     
     
@@ -23,8 +28,8 @@ ApplicationWindow {
         console.log(qsTr("+ Application Runs +"))
         console.log(qsTr("+------------------+"))
         Responsive.responsiveStartUp(Qt,Screen,applicationWindow,9,16)
-        applicationWindow.x = Screen.width/2 - Window.width/2        
-        applicationWindow.y = 0
+        //applicationWindow.x = Screen.width/2 - Window.width/2        
+        //applicationWindow.y = 0
     }
     
 }

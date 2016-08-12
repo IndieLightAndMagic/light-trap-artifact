@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/AutoFormaxLogo.png</file>
+        <file>images/AutoFormaxLogoBack.png</file>
+        <file>images/AutoFormaxLogoBackBlurred.png</file>
+        <file>images/BackButton.png</file>
+        <file>images/CaptureButton.png</file>
+        <file>images/ExitButton.png</file>
+        <file>images/SetButtonNotOk.png</file>
+        <file>images/SetButtonOk.png</file>
+        <file>images/SyncButton.png</file>
+        <file>images/TemplatesButton.png</file>
+    </qresource>
+</RCC>
