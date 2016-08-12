@@ -8,6 +8,9 @@ Rectangle {
     
     property var windowFactor: Qt.vector2d(1.0,1.0);
     
+    signal exitPressed
+    signal capturePressed
+    signal templatePressed
 
     Image {
         id: image1
@@ -78,7 +81,7 @@ Rectangle {
         anchors.centerIn: bottomAreaRight
         MouseArea{
             anchors.fill: parent
-            onClicked: Qt.quit()
+            onClicked: root.exitPressed()
         }
 
     }
@@ -91,7 +94,10 @@ Rectangle {
         source: "qrc:/images/CaptureButton.png"
         fillMode: Image.Stretch
         anchors.centerIn: bottomAreaCenter
-        
+        MouseArea{
+            anchors.fill: parent
+            onClicked: root.capturePressed()
+        }
     }
 
     Image {
@@ -102,7 +108,10 @@ Rectangle {
         source: "qrc:/images/TemplatesButton.png"
         fillMode: Image.Stretch
         anchors.centerIn: bottomAreaLeft
-        
+        MouseArea{
+            anchors.fill: parent
+            onClicked: root.templatePressed()
+        }
     }
     
 }

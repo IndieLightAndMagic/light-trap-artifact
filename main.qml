@@ -26,7 +26,8 @@ ApplicationWindow {
     
     MainMenu{
         id:mainMenu
-        windowFactor: applicationWindow.windowFactor         
+        windowFactor: applicationWindow.windowFactor
+        onExitPressed: Qt.quit()
     }
     
     
