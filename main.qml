@@ -15,19 +15,27 @@ ApplicationWindow {
     property var windowFactor:Qt.vector2d(1.0,1.0)
     
     
-    SplashScreen{
-        id:splashScreen
-        source:"qrc:/images/AutoFormaxLogoBackBlurred.png"
-    }
-    SplashScreen{
-        id:splashScreenWhite
-        fadeout_timer.running: true
+    CameraInterface{
+        id:cameraInterface
+        visible:false
+        /*Rectangle{
+            border.color: "red"
+            anchors.fill: parent
+            color: "#00000000"
+        }*/
     }
     
     MainMenu{
         id:mainMenu
         windowFactor: applicationWindow.windowFactor
         onExitPressed: Qt.quit()
+        onCapturePressed: cameraInterface.visible = true
+    }
+    
+    SplashScreen{
+        id:splashScreenWhite
+        fadeout_timer.running: true
+        onTimeout: mainMenu.visible = true
     }
     
     
