@@ -17,19 +17,24 @@ ApplicationWindow {
     
     
     CameraInterface{
-        id:cameraInterface
-        visible:false
+        id: cameraInterface
+        visible: false
+        windowFactor: applicationWindow.windowFactor
+        onBackPressed: {
+            console.log("Back pressed")
+            cameraInterface.visible = false
+            mainMenu.visible = true
+        }
     }
     
     MainMenu{
-        id:mainMenu
+        id: mainMenu
         visible: false
         windowFactor: applicationWindow.windowFactor
         onExitPressed: Qt.quit()
         onCapturePressed: {
             mainMenu.visible = false
             cameraInterface.visible = true
-            console.log("Capture pressed")
         }
     }
     

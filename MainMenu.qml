@@ -17,7 +17,7 @@ Rectangle {
         id: image1
         width:parent.width
         height:parent.height
-        source:"qrc:/images/AutoFormaxLogoBackBlurred.png"
+        source:"qrc:/images/AutoFormaxLogoBack.png"
         fillMode: Image.Stretch
     }
 
