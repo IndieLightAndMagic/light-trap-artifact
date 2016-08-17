@@ -1,9 +1,12 @@
 import QtQuick 2.0
 import QtMultimedia 5.5
 
-Item {
+Rectangle {
     width: parent.width
     height: parent.height
+    
+    
+    color: "#00000000"
     
     Camera {
         id: camera
@@ -33,5 +36,12 @@ Item {
     
     Image {
         id: photoPreview
+    }
+    onVisibleChanged: {
+        if (visible == true){
+            camera.start()
+        } else {
+            camera.stop()
+        }
     }
 }

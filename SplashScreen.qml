@@ -8,22 +8,16 @@ Image{
     fillMode: Image.Stretch
     
     property alias fadeout_timer: fadeout_timer
-    property alias invisible_timer: invisible_timer
     property int timeout_ms: 2000
     signal timeout
     signal clicked
     MouseArea{
+        id:mouseArea
         anchors.fill: parent
-        onClicked: root.clicked()
-    }
-    Timer{
-        id:invisible_timer
-        interval: timeout_ms
-        running: false
-        onTriggered: {
-            visible = false
-            root.timeout()
+        onClicked: {
+            root.clicked()
         }
+        enabled: true
     }
     OpacityAnimator{
         id:fadeout_timer
@@ -43,6 +37,7 @@ Image{
         running: false
         onTriggered: {
             root.timeout()
+            mouseArea.enabled = false
         }            
     }
 

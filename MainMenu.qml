@@ -8,10 +8,11 @@ Rectangle {
     
     property var windowFactor: Qt.vector2d(1.0,1.0);
     
+    
     signal exitPressed
     signal capturePressed
     signal templatePressed
-
+    
     Image {
         id: image1
         width:parent.width

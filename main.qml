@@ -10,6 +10,7 @@ ApplicationWindow {
     id:applicationWindow
     visible: true
     title: qsTr("Hello World")
+    color: "black"
     
     property string authorName:"Julian Andres Guarin"
     property var windowFactor:Qt.vector2d(1.0,1.0)
@@ -18,18 +19,18 @@ ApplicationWindow {
     CameraInterface{
         id:cameraInterface
         visible:false
-        /*Rectangle{
-            border.color: "red"
-            anchors.fill: parent
-            color: "#00000000"
-        }*/
     }
     
     MainMenu{
         id:mainMenu
+        visible: false
         windowFactor: applicationWindow.windowFactor
         onExitPressed: Qt.quit()
-        onCapturePressed: cameraInterface.visible = true
+        onCapturePressed: {
+            mainMenu.visible = false
+            cameraInterface.visible = true
+            console.log("Capture pressed")
+        }
     }
     
     SplashScreen{
