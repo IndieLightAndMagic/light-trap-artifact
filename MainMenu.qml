@@ -6,7 +6,7 @@ Rectangle {
     anchors.fill: parent
     
     
-    property var windowFactor: Qt.vector2d(1.0,1.0);
+    property vector2d windowFactor: Qt.vector2d(1.0,1.0);
     
     
     signal exitPressed

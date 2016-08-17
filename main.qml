@@ -13,7 +13,7 @@ ApplicationWindow {
     color: "black"
     
     property string authorName:"Julian Andres Guarin"
-    property var windowFactor:Qt.vector2d(1.0,1.0)
+    property vector2d windowFactor:Qt.vector2d(1.0,1.0)
     
     
     CameraInterface{

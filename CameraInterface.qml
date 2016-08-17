@@ -6,7 +6,7 @@ Rectangle {
     color: "#00000000"
     anchors.fill: parent    
     
-    property var windowFactor: Qt.vector2d(1.0,1.0);
+    property vector2d windowFactor: Qt.vector2d(1.0,1.0);
     
     signal backPressed
     
