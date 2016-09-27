@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtMultimedia 5.5
+import com.autoformax.videoprocess 1.0
 
 Rectangle {
     id: root
@@ -29,7 +30,10 @@ Rectangle {
             }
         }
     }
-    
+    VideoCapture{
+        id:videoCaptureFilter
+    }
+
     VideoOutput {
         id:vout
         source: camera
@@ -49,7 +53,10 @@ Rectangle {
             photoPreview.height =  sourceSize.height * windowFactor.y
             photoPreview.fillMode = Image.Stretch
             photoPreview.anchors.centerIn = parent
+            console.log("Calling Filter")
+            videoCaptureFilter.retrieveImage(photoPreview)
             previewTimer.running = true
+            
             
         }
         Timer {
