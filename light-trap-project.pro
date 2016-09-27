@@ -16,3 +16,9 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS +=
+
+
+macx: LIBS += -L$$PWD/../../uld-filter/build-uld-filter-project-Desktop_Qt_5_7_0_clang_64bit-Debug/ -luld-filter-project.1.0.0
+
+INCLUDEPATH += $$PWD/../../uld-filter/uld-filter-project
+DEPENDPATH += $$PWD/../../uld-filter/uld-filter-project
