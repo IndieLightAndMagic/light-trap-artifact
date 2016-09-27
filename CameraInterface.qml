@@ -24,11 +24,14 @@ Rectangle {
         flash.mode: Camera.FlashRedEyeReduction
         
         imageCapture {
+            id:imageCaptureItem
             onImageCaptured: {
                 photoPreview.source = preview  // Show the preview in an Image
                 console.log(preview)
             }
+            
         }
+        
     }
     VideoCapture{
         id:videoCaptureFilter
@@ -47,16 +50,21 @@ Rectangle {
     Image {
         id: photoPreview
         visible: false
+        
+        /* Initial Image cropped by a rectangle with the size of the viewfinder*/
+        source:"qrc:/images/AutoFormaxLogo.png"
+        fillMode:Image.Stretch
+        anchors.centerIn:parent
+        width : camera.viewfinder.resolution.width * windowFactor.x  
+        height :  camera.viewfinder.resolution.height * windowFactor.y
+        
         onSourceChanged: {
 
-            photoPreview.width = sourceSize.width * windowFactor.x  
-            photoPreview.height =  sourceSize.height * windowFactor.y
-            photoPreview.fillMode = Image.Stretch
-            photoPreview.anchors.centerIn = parent
-            console.log("Calling Filter")
+            /*photoPreview.width = sourceSize.width * windowFactor.x  
+            photoPreview.height =  sourceSize.height * windowFactor.y*/
+            console.log("Calling Filter:",width, height)
             videoCaptureFilter.retrieveImage(photoPreview)
             previewTimer.running = true
-            
             
         }
         Timer {
@@ -70,6 +78,7 @@ Rectangle {
             onRunningChanged: photoPreview.visible = running
             
         }
+        
     }
     onVisibleChanged: {
         if (visible == true){
@@ -123,7 +132,6 @@ Rectangle {
             anchors.fill: parent
             onClicked: {
                 camera.imageCapture.capture()
-                camera.start()
             }
         }
     }
