@@ -7,7 +7,6 @@
         <file>js/responsive.js</file>
         <file>MainMenu.qml</file>
         <file>deployment.pri</file>
-        <file>light-trap-project.pro</file>
         <file>main.cpp</file>
         <file>qml.qrc</file>
         <file>CustomArea.qml</file>
