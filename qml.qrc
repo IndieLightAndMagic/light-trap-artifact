@@ -10,5 +10,6 @@
         <file>main.cpp</file>
         <file>qml.qrc</file>
         <file>CustomArea.qml</file>
+        <file>IpSelector.qml</file>
     </qresource>
 </RCC>

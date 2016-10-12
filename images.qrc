@@ -10,5 +10,6 @@
         <file>images/SetButtonOk.png</file>
         <file>images/SyncButton.png</file>
         <file>images/TemplatesButton.png</file>
+        <file>images/Wait.png</file>
     </qresource>
 </RCC>
