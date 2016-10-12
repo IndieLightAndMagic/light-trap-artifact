@@ -37,6 +37,8 @@ INCLUDEPATH += ../../uld-filter/uld-filter-project
 DISTFILES += \
     ipselector/IpSelector.qml \
     ipselector/Auth.qml \
-    IpSelector.qml
+    IpSelector.qml \
+    android-src/AndroidManifest.xml
 
 
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-src
